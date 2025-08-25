@@ -1,0 +1,415 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.streak {
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.add-section {
+    margin-bottom: 20px;
+}
+
+.input-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+#newManifestation {
+    flex: 2;
+    min-width: 200px;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    outline: none;
+}
+
+#categorySelect, #reminderTime {
+    flex: 1;
+    min-width: 120px;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    outline: none;
+    cursor: pointer;
+}
+
+#addBtn {
+    padding: 15px 25px;
+    background: #6366f1;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+#addBtn:hover {
+    background: #5855eb;
+    transform: translateY(-2px);
+}
+
+.custom-category-section {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+#customCategory {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.95);
+    outline: none;
+}
+
+#addCategoryBtn {
+    padding: 12px 20px;
+    background: #10b981;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 14px;
+}
+
+#addCategoryBtn:hover {
+    background: #059669;
+}
+
+.filter-section {
+    margin-bottom: 20px;
+}
+
+.category-filters {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 5px 0;
+}
+
+.filter-btn {
+    padding: 8px 15px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    backdrop-filter: blur(10px);
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.active-section,
+.achievements-section {
+    margin-bottom: 30px;
+}
+
+.active-section h2,
+.achievements-section h2 {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.manifestation-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.manifestation-item {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 15px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    transition: all 0.2s;
+    position: relative;
+}
+
+.manifestation-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.category-badge {
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.category-general {
+    background: #6b7280;
+}
+.category-career {
+    background: #3b82f6;
+}
+.category-health {
+    background: #10b981;
+}
+.category-relationships {
+    background: #ef4444;
+}
+.category-finances {
+    background: #f59e0b;
+}
+.category-personal {
+    background: #8b5cf6;
+}
+
+.manifestation-text {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.manifestation-date {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.achieve-btn,
+.reactivate-btn {
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+    font-size: 14px;
+}
+
+.achieve-btn:hover,
+.reactivate-btn:hover {
+    background: #059669;
+    transform: scale(1.05);
+}
+
+.reactivate-btn {
+    background: #6366f1;
+}
+
+.reactivate-btn:hover {
+    background: #5855eb;
+}
+
+/* Achievement Styling */
+.achieved-item {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border: 2px solid #f59e0b;
+    position: relative;
+    overflow: hidden;
+}
+
+.achieved-item::before {
+    content: "✨";
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    opacity: 0.7;
+}
+
+.achieved-item .manifestation-text {
+    color: #78350f;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.gratitude-message {
+    font-style: italic;
+    color: #92400e;
+    font-size: 14px;
+    margin: 8px 0;
+    padding: 8px;
+    background: rgba(251, 191, 36, 0.3);
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.achievement-date {
+    color: #78350f;
+    font-weight: 600;
+}
+
+.achieved-item .category-badge {
+    color: white;
+}
+
+.empty-state {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    font-style: italic;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.settings {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    margin-bottom: 20px;
+}
+
+.reminder-settings {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.reminder-settings label {
+    font-weight: 600;
+}
+
+#testNotification {
+    padding: 8px 15px;
+    background: #10b981;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+#testNotification:hover {
+    background: #059669;
+}
+
+.notification-status {
+    padding: 10px;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 8px;
+    font-size: 14px;
+    color: #065f46;
+}
+
+.progress-stats {
+    display: flex;
+    justify-content: space-around;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #6366f1;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #666;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .input-container {
+        flex-direction: column;
+    }
+
+    .reminder-settings {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .progress-stats {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
