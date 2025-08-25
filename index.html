@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ManifestNow</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" href="icon-192.png" />
+    <meta name="theme-color" content="#6366f1" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <!-- Header with Streak -->
+        <header class="header">
+            <h1>ManifestNow</h1>
+            <div class="streak">🔥 <span id="streakCount">0</span> days</div>
+        </header>
+
+        <!-- Add New Manifestation -->
+        <section class="add-section">
+            <div class="input-container">
+                <input
+                    type="text"
+                    id="newManifestation"
+                    placeholder="What are you manifesting today?"
+                    maxlength="200"
+                />
+                <select id="categorySelect">
+                    <option value="general">General</option>
+                    <option value="career">Career</option>
+                    <option value="health">Health</option>
+                    <option value="relationships">Love & Relationships</option>
+                    <option value="finances">Money & Abundance</option>
+                    <option value="personal">Personal Growth</option>
+                </select>
+                <button id="addBtn">Add</button>
+            </div>
+
+            <!-- Add Custom Category -->
+            <div class="custom-category-section">
+                <input
+                    type="text"
+                    id="customCategory"
+                    placeholder="Add new category (optional)"
+                    maxlength="15"
+                />
+                <button id="addCategoryBtn">Add Category</button>
+            </div>
+        </section>
+
+        <!-- Categories Filter -->
+        <section class="filter-section">
+            <div class="category-filters" id="categoryFilters">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="general">General</button>
+                <button class="filter-btn" data-category="career">Career</button>
+                <button class="filter-btn" data-category="health">Health</button>
+                <button class="filter-btn" data-category="relationships">Love</button>
+                <button class="filter-btn" data-category="finances">Money</button>
+                <button class="filter-btn" data-category="personal">Growth</button>
+            </div>
+        </section>
+
+        <!-- Active Manifestations -->
+        <section class="active-section">
+            <h2>Active Manifestations</h2>
+            <div id="activeList" class="manifestation-list">
+                <div class="empty-state">Add your first manifestation above ✨</div>
+            </div>
+        </section>
+
+        <!-- Gratitude & Achievements -->
+        <section class="achievements-section">
+            <h2>✨ Manifestation Gratitude ✨</h2>
+            <div id="achievementsList" class="manifestation-list">
+                <div class="empty-state">Your manifested blessings will appear here 🙏</div>
+            </div>
+        </section>
+
+        <!-- Settings -->
+        <div class="settings">
+            <div class="reminder-settings">
+                <label for="reminderTime">Daily Reminder:</label>
+                <select id="reminderTime">
+                    <option value="06:00">6:00 AM</option>
+                    <option value="07:00">7:00 AM</option>
+                    <option value="08:00" selected>8:00 AM</option>
+                    <option value="09:00">9:00 AM</option>
+                    <option value="10:00">10:00 AM</option>
+                    <option value="18:00">6:00 PM</option>
+                    <option value="19:00">7:00 PM</option>
+                    <option value="20:00">8:00 PM</option>
+                    <option value="21:00">9:00 PM</option>
+                    <option value="22:00">10:00 PM</option>
+                </select>
+                <button id="testNotification">Test Reminder</button>
+            </div>
+            <div class="notification-status">
+                <span id="statusText">Click "Test Reminder" to enable notifications</span>
+            </div>
+        </div>
+
+        <!-- Progress Stats -->
+        <div class="progress-stats">
+            <div class="stat-item">
+                <div class="stat-number" id="totalManifested">0</div>
+                <div class="stat-label">Total Manifested</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="thisMonth">0</div>
+                <div class="stat-label">This Month</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="activeCount">0</div>
+                <div class="stat-label">Active Goals</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
