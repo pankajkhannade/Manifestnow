@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ManifestNow</title>
     <link rel="manifest" href="manifest.json" />
-    <link rel="icon" href="icon-192.png" />
     <meta name="theme-color" content="#6366f1" />
     <link rel="stylesheet" href="style.css" />
 </head>
@@ -115,6 +114,13 @@
                 <div class="stat-number" id="activeCount">0</div>
                 <div class="stat-label">Active Goals</div>
             </div>
+        </div>
+
+        <!-- Data Management -->
+        <div class="data-management">
+            <button id="exportData" class="data-btn">📤 Export Data</button>
+            <button id="importData" class="data-btn">📥 Import Data</button>
+            <input type="file" id="importFile" accept=".json" style="display: none;">
         </div>
     </div>
 
