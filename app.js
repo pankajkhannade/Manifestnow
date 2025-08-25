@@ -72,10 +72,12 @@ class ManifestNow {
     const exportBtn = document.getElementById('exportData');
     const importBtn = document.getElementById('importData');
     const importFile = document.getElementById('importFile');
+    const resetBtn = document.getElementById('resetData');
 
     if (exportBtn) exportBtn.onclick = () => this.exportData();
     if (importBtn) importBtn.onclick = () => importFile.click();
     if (importFile) importFile.onchange = (e) => this.importData(e);
+    if (resetBtn) resetBtn.onclick = () => this.resetData();
 
     // Filters
     this.bindFilterEvents();
@@ -525,6 +527,46 @@ class ManifestNow {
     
     // Reset file input
     event.target.value = '';
+  }
+
+  async resetData() {
+    const confirmed = confirm('This will delete all local data (manifestations, settings, custom categories). This cannot be undone. Continue?');
+    if (!confirmed) return;
+
+    try {
+      // Clear local state
+      this.manifestations = [];
+      this.settings = {
+        reminderTime: '08:00',
+        streak: 0,
+        lastEngagement: null,
+        notificationsEnabled: false,
+        lastNotificationDate: null
+      };
+      this.customCategories = [];
+
+      // Clear localStorage keys we use
+      localStorage.removeItem('manifestations');
+      localStorage.removeItem('settings');
+      localStorage.removeItem('customCategories');
+
+      // Try to clear caches created by our service worker
+      if ('caches' in window) {
+        const keys = await caches.keys();
+        await Promise.all(keys.map((k) => caches.delete(k)));
+      }
+
+      // Re-render UI
+      this.updateCategoryFilters();
+      this.render();
+      this.updateStats();
+      this.updateNotificationStatus();
+
+      this.showFeedback('🗑️ All data reset. Fresh start!');
+    } catch (error) {
+      console.error('Error resetting data:', error);
+      this.showFeedback('❌ Failed to reset data');
+    }
   }
 
   saveManifestations() { 
